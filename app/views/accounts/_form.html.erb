@@ -15,6 +15,10 @@
     <%= f.label :amount %><br>
     <%= f.text_field :amount %>
   </div>
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.select :number, options_for_select(1..6) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

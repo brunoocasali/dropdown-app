@@ -3,7 +3,7 @@ class CreateInstallments < ActiveRecord::Migration
     create_table :installments do |t|
       t.decimal :amount, precision: 10, scale: 2
       t.integer :number
-      t.account :references
+      t.references :account
 
       t.timestamps null: false
     end
