@@ -4,9 +4,9 @@
       <h2><%= pluralize(@installment.errors.count, "error") %> prohibited this installment from being saved:</h2>
 
       <ul>
-      <% @installment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @installment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -20,8 +20,8 @@
     <%= f.number_field :number %>
   </div>
   <div class="field">
-    <%= f.label :references %><br>
-    <%= f.text_field :references %>
+    <%= f.label :account %><br>
+    <%= f.select :account, options_for_select(Account.all) %>
   </div>
   <div class="actions">
     <%= f.submit %>

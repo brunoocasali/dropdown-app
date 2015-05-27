@@ -8,6 +8,8 @@ class AccountsController < ApplicationController
 
   def new
     @account = Account.new
+
+    respond_with(@account)
   end
 
   def show; end
@@ -32,14 +34,18 @@ class AccountsController < ApplicationController
     respond_with(@account)
   end
 
+  def load_account
+    @account = Account.new(number: params[:number].to_i)
+    @account.number.times { @account.installments.new }
+  end
+
   private
 
   def set_account
     @account = Account.find(params[:id])
   end
 
-
   def account_params
-    params.require(:account).permit(:amount, :number)
+    params.require(:account).permit(:amount, :number, installment_attributes: [:amount, :number])
   end
 end
