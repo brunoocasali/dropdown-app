@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :number %><br>
-    <%= f.select :number, options_for_select(1..6), include_blank: true %>
+    <%= f.select :number, options_for_select(1..6), { selected: @account.number }, include_blank: true %>
   </div>
 
   <div id="items"></div>

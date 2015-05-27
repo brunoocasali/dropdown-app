@@ -35,8 +35,8 @@ class AccountsController < ApplicationController
   end
 
   def load_account
-    @account = Account.new(number: params[:number].to_i)
-    @account.number.times { @account.installments.new }
+    @account ||= Account.new(number: params[:number].to_i)
+    @account.number.times { @account.installments.build } if @account.installments.count == 0
   end
 
   private
