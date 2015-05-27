@@ -1,0 +1,13 @@
+<% account.installments.each_with_index do |installment, index| %>
+  <%= f.fields_for :installments, installment do |fi| %>
+    <%= "Installment: #{index + 1} of #{account.installments.size} " %>
+    <div class="field">
+      <%= fi.label :amount %><br>
+      <%= fi.text_field :amount %>
+    </div>
+    <div class="field">
+      <%= fi.label :number %><br>
+      <%= fi.number_field :number %>
+    </div>
+  <% end %>
+<% end %>

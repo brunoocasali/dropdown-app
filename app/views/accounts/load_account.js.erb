@@ -1,0 +1,3 @@
+'<%= form_for(@account) do |f| %>'
+  $('#items').html("<%= escape_javascript(render partial: 'fields', locals: { account: @account, f: f }) %>");
+'<% end %>'

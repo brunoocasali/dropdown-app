@@ -17,20 +17,10 @@
   </div>
   <div class="field">
     <%= f.label :number %><br>
-    <%= f.select :number, options_for_select(1..6) %>
+    <%= f.select :number, options_for_select(1..6), include_blank: true %>
   </div>
 
-  <%= f.fields_for :installments do |fi| %>
-    <b>Installment: </b> <%= "#{fi.options[:child_index] + 1} of #{@account.installments.size} " %>
-    <div class="field">
-      <%= fi.label :amount %><br>
-      <%= fi.text_field :amount %>
-    </div>
-    <div class="field">
-      <%= fi.label :number %><br>
-      <%= fi.number_field :number %>
-    </div>
-  <% end %>
+  <div id="items"></div>
 
   <div class="actions">
     <%= f.submit %>
